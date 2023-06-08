@@ -1,0 +1,26 @@
+<div class="modal fade" id="delete_book{{$book->id}}" tabindex="-1"
+    role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog" role="document">
+       <form action="{{route('library.destroy', $book->id)}}" method="post">
+            @csrf
+            @method('delete')
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title" id="exampleModalLabel">{{ trans('trans_student.delete') }} <span class="text-danger">{{$book->title}}</span></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>{{ trans('trans_student.delete sure') }}</p>
+                </div>
+                <div class="modal-footer">
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans('trans_student.close') }}</button>
+                        <button type="submit" class="btn btn-danger">{{ trans('trans_student.delete') }}</button>
+                    </div>
+                </div>
+            </div>
+       </form>
+   </div>
+</div>
